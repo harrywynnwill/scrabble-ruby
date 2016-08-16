@@ -1,24 +1,26 @@
 class Anagram
 
+  DICTIONARY = "./public/twl06.txt"
+  attr_reader :results, :matches
 
+  def initialize
+    @results = []
+    @matches = []
+  end
 
-
-  words = Hash.new([])
-
-  File.open("public/twl06.txt", "r") do |file|
-    while line = file.gets
-      word = line.chomp
-      words[word.split('').sort!.join('')] += [word]
+  def search
+    @results.each do |word|
+      File.open(DICTIONARY) do |f|
+        f.any? do |line|
+          line.strip!
+          @matches << word if line == word
+        end
+      end
     end
+    @matches
   end
 
-  File.open("word_hash", "w") do |file|
-    Marshal.dump(words, file)
+  def permutations length, word
+    @results = (length..7).flat_map{|n| word.chars.to_a.permutation(n).map(&:join)}.uniq
   end
-
-
-
-
-  
-
 end
