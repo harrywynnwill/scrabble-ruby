@@ -42,11 +42,13 @@ class Scrabble
    end
 
    def get_words anagram = Anagram.new
-
-    anagram.permutations 6, @rack.join('')
-    anagram.search
-    return anagram.matches
-  end
+      rack = @rack.join("").downcase
+      p rack
+      anagram.file_to_array
+      anagram.permutations rack
+      anagram.words
+      anagram.matches
+   end
 
    def score(word)
     scores = SCORE.values_at(*word.upcase.chars)
