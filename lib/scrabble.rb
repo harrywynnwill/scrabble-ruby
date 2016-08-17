@@ -32,7 +32,6 @@ class Scrabble
      @possible_words.max_by {|word| score word}
    end
 
-
   private
 
    def assign_tile

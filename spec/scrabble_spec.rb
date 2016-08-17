@@ -2,7 +2,7 @@ require 'Scrabble'
 describe Scrabble do
   let(:scrabble) {described_class.new}
   let(:anagram) { double("anagram")}
-  let(:rack) {double("rack")}
+  let(:rack) { double("rack") }
 
   before(:each) do
     scrabble.new_game
