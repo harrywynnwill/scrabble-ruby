@@ -1,4 +1,4 @@
-require 'Scrabble'
+require 'scrabble'
 describe Scrabble do
   let(:scrabble) {described_class.new}
   let(:anagram) { double("anagram")}

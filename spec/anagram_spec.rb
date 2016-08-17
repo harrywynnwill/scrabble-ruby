@@ -1,4 +1,4 @@
-require 'Anagram'
+require 'anagram'
 describe Anagram do
   let(:anagram) {described_class.new}
 
