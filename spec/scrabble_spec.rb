@@ -1,4 +1,4 @@
-require 'scrabble'
+require './lib/scrabble.rb'
 describe Scrabble do
   let(:scrabble) {described_class.new}
   let(:anagram) { double("anagram")}
@@ -7,6 +7,7 @@ describe Scrabble do
   before(:each) do
     scrabble.new_game
   end
+
   describe "#new_game" do
     it "creates a scrabble bag with the correct distribution of letters shuffles and adds 7 to the rack" do
       expect(scrabble.bag.length).to eq 91

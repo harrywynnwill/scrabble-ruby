@@ -1,4 +1,4 @@
-require 'anagram'
+require './lib/anagram.rb'
 describe Anagram do
   let(:anagram) {described_class.new}
 
