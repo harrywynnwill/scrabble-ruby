@@ -2,16 +2,9 @@ require './lib/anagram.rb'
 describe Anagram do
   let(:anagram) {described_class.new}
 
-  xdescribe "#permutations" do
-    context "with a five letter word with individual letters 5*4*3*2*1 = 120 " do
-      it "creates all permutations of letters" do
-        anagram.permutations "their"
-        expect(anagram.results.length).to eq 120
-      end
+  describe "#anagram_results" do
+    it "creates a dictionary, creates all the possible permutations of a word and cross references them" do
+      expect(anagram.anagram_results "the").to eq ["eh", "et", "eth", "he", "het", "the"]
     end
   end
-
-
-
-
 end
