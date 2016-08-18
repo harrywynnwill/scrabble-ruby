@@ -1,4 +1,4 @@
-require 'anagram'
+require './lib/anagram'
 class Scrabble
 
     SCORE = {"A"=>1, "B"=>3, "C"=>3, "D"=>2, "E"=>1, "F"=>4, "G"=>2, "H"=>4, "I"=>1, "J"=>8,
@@ -12,6 +12,14 @@ class Scrabble
      @rack = []
      @possible_words = []
    end
+
+   def self.create
+     @scrabble = Scrabble.new
+   end
+
+  def self.instance
+    @scrabble
+  end
 
    def new_game
      create_bag

@@ -2,7 +2,9 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
+  gem 'sinatra'
+  gem 'shotgun'
+
 group :test do
   gem 'rake'
   gem 'rspec'
