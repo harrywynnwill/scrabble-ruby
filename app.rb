@@ -4,6 +4,7 @@ require './lib/scrabble'
 
 class Game < Sinatra::Base
   enable :sessions
+  set :public_folder, 'public'
 
   get '/' do
     @game = Scrabble.create
