@@ -7,9 +7,15 @@
   <body>
     <div class="game">
 
-  <span id="js-rotating">  <%= @game.rack %></span> <br>
-  <div id="rack">  <%= @game.rack %>  </div>
+      YOUR RACK
+      <div id="rack">    </div><br>
+  <!-- <span id="js-rotating">  <%= @game.rack.join(",") %></span> <br> -->
+      <div id="word-score"> HIGHEST POSSIBLE SCORE: <%= @game.score @game.highest_possibe_score%>points </div>
 
+      <div id="best-word"> </div>
+      LONGEST WORD SCORE: <%= @game.score @game.longest_valid_word%>points </div>
+      <div id="longest-word"></div>
+  </div>
     <!-- <%= @game.bag %><br> -->
 
     </div>
@@ -17,20 +23,38 @@
        <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
        <script src="bower_components/morphext/dist/morphext.js"></script>
        <script>
-       $("#rack").hide();
+       (function($) {
+         $.fn.writeText = function(content) {
+           var contentArray = content.split(""),
+            current = 0,
+            elem = this;
+          setInterval(function() {
+            if(current < contentArray.length) {
+                elem.text(elem.text() + contentArray[current++]);
+                    }
+                }, 100);
+            };
+        })(jQuery);
 
-       $("#js-rotating").Morphext({
-           animation: "rotateIn",
-           complete: function () {
-           // 1. Stop if phrase index is 3
-           if (this.index === 6) {
-               this.stop();
-           }
+        $("#rack").writeText("<%=@game.rack.join("")%>");
+        $("#best-word").writeText("<%=@game.highest_possibe_score%>");
+        $("#longest-word").writeText("<%=@game.longest_valid_word%>");
+       </script>
+       <script>
 
-           $("#rack").hide()
-          }
-        });
-
+       //
+      //  $("#js-rotating").Morphext({
+      //      animation: "bounce",
+      //      complete: function () {
+      //      // 1. Stop if phrase index is 3
+      //         if (this.index === 6) {
+      //          this.stop();
+      //        }
+       //
+       //
+      //     }
+      //   });
+      //   $("#rack").writeText("This is some text");
 
        </script>
   </body>

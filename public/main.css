@@ -1,11 +1,23 @@
-.game {
+#rack , #best-word, #longest-word {
 font-family: scrabble;
 font-size: 50px;
 
 }
+/*#rack {
+    visibility: hidden;
+}*/
 
+.game {
+  font-family: score;
+  font-size: 50px;
+}
 
 @font-face {
     font-family: scrabble;
     src: url(scramble.ttf);
+}
+
+@font-face {
+    font-family: score;
+    src: url(Bazaronite.ttf);
 }

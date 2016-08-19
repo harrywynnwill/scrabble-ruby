@@ -27,6 +27,10 @@ class Scrabble
      7.times {assign_tile}
    end
 
+   def new_game_custom_word word
+     @rack = word
+   end
+
    def get_words anagram = Anagram.new
      rack = @rack.join("").downcase
      @possible_words = anagram.anagram_results rack
@@ -38,6 +42,11 @@ class Scrabble
 
    def highest_possibe_score
      @possible_words.max_by {|word| score word}
+   end
+
+   def score(word)
+     scores = SCORE.values_at(*word.upcase.chars)
+     scores.compact.reduce(0, :+)
    end
 
   private
@@ -63,8 +72,4 @@ class Scrabble
      1.times { @bag << "K" && @bag << "J" && @bag << "X" && @bag << "Q" && @bag << "Z"}
   end
 
-  def score(word)
-    scores = SCORE.values_at(*word.upcase.chars)
-    scores.compact.reduce(0, :+)
-  end
 end

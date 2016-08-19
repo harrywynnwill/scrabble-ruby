@@ -8,13 +8,17 @@ class Game < Sinatra::Base
   get '/play' do
     @game = Scrabble.create
     @game.new_game
+    @game.get_words
     erb :play
   end
 
-  get '/hello' do
-    erb :play
+  post '/play' do
+    redirect
   end
 
+  get / do
+    erb :index
+  end
 
   run! if app_file == $0
 end
