@@ -5,20 +5,16 @@ require './lib/scrabble'
 class Game < Sinatra::Base
   enable :sessions
 
-  get '/play' do
+  get '/' do
     @game = Scrabble.create
     @game.new_game
     @game.get_words
     erb :play
   end
 
-  post '/play' do
-    redirect
-  end
 
-  get / do
-    erb :index
-  end
+
+
 
   run! if app_file == $0
 end
