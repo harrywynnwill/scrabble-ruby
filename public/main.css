@@ -14,7 +14,7 @@ font-size: 50px;
 
 @font-face {
     font-family: scrabble;
-    src: url(scramble.ttf);
+    src: font-url(scramble.ttf);
 }
 
 @font-face {
