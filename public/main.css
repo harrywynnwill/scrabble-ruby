@@ -6,12 +6,17 @@ font-size: 50px;
 /*#rack {
     visibility: hidden;
 }*/
-.rules, p  {
+.rules {
   font-family: score;
   font-size: 20px;
    /*text-transform: uppercase;*/
 }
 
+p {
+  font-family: score;
+  font-size: 20px;
+   /*text-transform: uppercase;*/
+}
 
 
 .game {
